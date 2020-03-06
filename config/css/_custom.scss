@@ -1,0 +1,311 @@
+// ==============================
+// Custom style
+// 自定义样式
+// ==============================
+
+body {
+  font-family: "Barlow", sans-serif;
+}
+
+.wrapper {
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 960px;
+  padding-top: 0;
+}
+
+.banner {
+  width: 100%;
+  max-width: 1230px;
+  min-height: 500px;
+  margin: 2rem auto;
+  background-color: #f5f6f7;
+  background-image: url('/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#header-desktop {
+  background: #fff;
+  padding: 1.3125rem 0;
+  height: auto;
+  line-height: 1;
+  
+  .header-wrapper {
+    margin: 0 auto;
+    max-width: 1262px;
+    text-align: left;
+    
+    .menu {
+      padding: 0 1rem;
+      a {
+        color: $global-font-color;
+        &:hover {
+          color: $global-link-color;
+        }
+      }
+    }
+    
+    .header-title {
+      padding: 0 1rem;
+      
+      a {
+        font-weight: 600;
+        font-size: 2rem;
+        padding: 0;
+        line-height: 2.5rem;
+        margin-bottom: 0.3125rem;
+        display: block;
+      }
+      
+      div {
+        font-weight: normal;
+        color: $global-font-secondary-color;
+        font-size: 1rem;
+      }
+    }
+    
+    .menu {
+      line-height: 3.75rem;
+    }
+  }
+}
+
+#header-mobile {
+  background: #fff;
+  padding: 1.3125rem 0;
+  height: auto;
+  line-height: 1;
+  .header-wrapper {
+    .menu {
+      border-top: 0;
+      box-shadow: unset;
+      margin-top: 2rem;
+      border-bottom: 1px solid $global-border-color;
+      border-top: 1px solid $global-border-color;
+    }
+    
+    .header-title {
+      a {
+        font-weight: 600;
+        font-size: 2rem;
+        padding: 0;
+        line-height: 2.5rem;
+        margin-bottom: 0.3125rem;
+        display: block;
+      }
+      
+      div {
+        font-weight: normal;
+        color: $global-font-secondary-color;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+#header-desktop, #header-mobile {
+  .menu {
+    a {
+      color: $global-font-color;
+    }
+  }
+}
+
+.home {
+  .home-profile {
+    .home-social-links a {
+      color: $global-font-color;
+    }
+  }
+  
+  .summary {
+    padding: 2rem 0;
+    
+    &:last-child {
+      border-bottom: 0;
+    }
+    
+    .featured-image-preview {
+      border-radius: 0.25rem;
+      margin: 1.5rem 0;
+      overflow: hidden;
+    }
+    
+    .single-title {
+      font-size: 2rem;
+      
+      a {
+        color: $global-font-color;
+        &:hover {
+          color: $global-link-color;
+        }
+      }
+    }
+    
+    .content {
+      color: $global-font-color;
+      margin-top: 1rem;
+      
+      p {
+        font-size: 1.125rem;
+        line-height: 2rem;
+        margin-bottom: 1rem;
+        margin-top: 0;
+        display: block;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    .post-footer {
+      margin: 1.5rem 0;
+      
+      a {
+        padding: 5px 14px;
+        border-color: $global-link-color;
+        background-color: $global-link-color;
+        font-size: 0.875rem;
+        border-radius: 0.2rem;
+        color: #ffffff!important;
+        display: inline-block;
+        user-select: none;
+        &:hover {
+          background-color: $global-link-hover-color;
+          border-color: $global-link-hover-color;
+          color: #ffffff!important;
+        }
+      }
+    }
+  }
+}
+
+.single {
+  padding-top: 3.75rem;
+  
+  #toc-auto {
+    .toc-content {
+      // 数线
+      ul a::before {
+        color: $global-font-secondary-color;
+      }
+      
+      // 名称
+      a {
+        color: $global-font-secondary-color;
+      }
+      
+      // 名称焦点
+      a.active {
+        color: $global-link-hover-color;
+      }
+    }
+  }
+  
+  .single-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .featured-image {
+    margin: 1rem 0;
+    padding: 0;
+  }
+  
+  .post-meta {
+    font-size: 0.9375rem;
+    font-style: italic;
+    line-height: 2rem;
+    
+    .post-meta-line-item {
+      margin-right: 0.625rem;
+      
+      span {
+        margin-right: 0.3125rem;
+        
+        a:after {
+          content: ','
+        }
+        
+        &:last-child {
+          margin-right: 0;
+          
+          a:after {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+  
+  .content {
+    margin-top: 1.5rem;
+    
+    p {
+      font-size: 1.125rem;
+      line-height: 2rem;
+      margin-bottom: 1rem;
+      margin-top: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .post-footer {
+    .post-info {
+      padding: 1rem 0 1rem;
+      
+      .post-info-line {
+        .post-info-md, .post-info-mod, .post-info-license, .post-info-wordcount {
+          font-size: 0.9375rem;
+          font-style: italic;
+          color: $global-font-secondary-color;
+        }
+      }
+    }
+    
+    .post-info-more {
+      padding: 1rem 0 1rem;
+      font-size: 0.9375rem;
+      font-style: italic;
+      
+      .post-meta {
+        line-height: unset;
+      }
+    }
+  }
+}
+
+.footer {
+  background: $header-background-color;
+  height: auto;
+  padding: 3rem 0;
+  margin-top: 3rem;
+  
+  .copyright .copyright-line {
+    font-family: $global-font-family;
+    
+    .far {
+      margin-right: 2px;
+    }
+  }
+}
+
+// 代码高亮北京
+.single .content .highlight>.chroma::before {
+  color: #b1b0b0;
+  background: #f5f6f7;
+}
+
+.single .content code, .single .content pre, .single .content .highlight table, .single .content .highlight tr, .single .content .highlight td {
+  background: #f7f8f9;
+}

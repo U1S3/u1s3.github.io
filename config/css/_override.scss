@@ -1,0 +1,43 @@
+// ==============================
+// Override Variables
+// 覆盖变量
+// ==============================
+// You can override the variables in assets/css/_variables.scss to customize the style
+// 您可以覆盖 assets/css/_variables.scss 中的变量
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+$global-font-family: Lato,-apple-system,BlinkMacSystemFont,PingFang SC,Microsoft Yahei,Segoe UI,Helvetica,Arial,sans-serif,Segoe UI Emoji;
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap&subset=latin-ext');
+
+$code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospace;
+
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,400i,600,600i&display=swap&ver=5.3.2');
+
+
+// Color of the text
+$global-font-color: #50556c;
+
+// Color of the secondary text
+$global-font-secondary-color: #8d95a6;
+
+// Color of the link
+$global-link-color: #6f76d9;
+
+// Color of the hover link
+$global-link-hover-color: #ff6492;
+
+// Color of the header background
+$header-background-color: #f5f6f7;
+
+// Color of the border
+$global-border-color: $header-background-color;
+
+
+// Color of the single link
+$single-link-color: $global-link-color;
+
+// Color of the hover single link
+$single-link-hover-color: $global-link-hover-color;
+

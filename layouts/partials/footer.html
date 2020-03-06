@@ -1,0 +1,22 @@
+<footer class="footer">
+    <div class="copyright">
+        <div class="copyright-line">
+            {{- /* Copyright year */ -}}
+            <i class="far fa-copyright fa-fw"></i>
+            {{- with .Site.Params.footer.since -}}
+                <span itemprop="copyrightYear">
+                    {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
+                </span>
+            {{- else -}}
+                <span itemprop="copyrightYear">{{ now.Year }}</span>
+            {{- end -}}
+            
+            {{- /* ICP */ -}}
+            {{- with .Site.Params.footer.icp -}}
+                <span class="icp-splitter"> / </span><br class="icp-br"/>
+                <span class="icp">{{ . | safeHTML }}</span>
+            {{- end -}}
+        </div>
+        
+    </div>
+</footer>

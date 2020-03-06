@@ -1,0 +1,37 @@
+{{- define "content" -}}
+
+    {{- /* Custom by chishui Begin */ -}}
+    {{- partial "home/banner.html" . -}}
+    {{- /* Custom by chishui End */ -}}
+
+    <div class="page home">
+    
+        {{- /* Custom by chishui Begin */ -}}
+        {{- /* Profile 
+        {{- if .Site.Params.home.profile.enable -}}
+            {{- partial "home/profile.html" . -}}
+        {{- end -}}
+        */ -}}
+        {{- /* Custom by chishui End */ -}}
+
+        {{- /* Posts */ -}}
+        {{- if ne .Site.Params.home.posts.enable false -}}
+            {{- /* Paginate */ -}}
+            {{- $paginator := where .Site.RegularPages "Type" "posts" -}}
+            {{- if ne .Site.Params.home.posts.mode.defaultHiddenFromHomePage false -}}
+                {{- $paginator = where $paginator "Params.hiddenfromhomepage" "!=" true -}}
+            {{- else -}}
+                {{- $paginator = where $paginator "Params.hiddenfromhomepage" false -}}
+            {{- end -}}
+            {{- with .Site.Params.home.posts.paginate -}}
+                {{- $paginator = $.Paginate $paginator . -}}
+            {{- else -}}
+                {{- $paginator = $.Paginate $paginator -}}
+            {{- end -}}
+            {{- range $paginator.Pages -}}
+                {{- .Render "summary" -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}

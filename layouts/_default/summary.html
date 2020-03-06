@@ -1,0 +1,49 @@
+{{- $scratch := .Scratch.Get "scratch" -}}
+
+<article class="single summary" itemscope itemtype="http://schema.org/Article">
+    {{- /* Featured image */ -}}
+    {{- with .Params.featuredImage -}}
+        <div class="featured-image-preview">
+            {{- $image := $.Params.featuredImagePreview | default . -}}
+            {{- partial "plugin/image.html" (dict "src" $image "description" $.Description "scratch" $scratch) -}}
+        </div>
+    {{- end -}}
+
+    {{- /* Title */ -}}
+    <h1 class="single-title" itemprop="name headline">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1>
+    
+    {{- /* Custom by chishui Begin */ -}}
+    <div class="post-meta">
+        <div class="post-meta-line">
+            {{- $publish_date := .PublishDate.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
+            Posted on <a href="javascript:void(0);" datetime={{ $publish_date }}>{{ $publish_date }}</a> 
+
+            {{- $author := .Params.author | default .Site.Author.name -}}
+            {{- $authorLink := .Params.authorLink | default .Site.Author.link | default (relLangURL "/") -}}
+            &nbsp; by <a href="{{ $authorLink }}" rel="author" target="_blank">{{ $author }}</a>
+        </div>
+    </div>
+    {{- /* Custom by chishui End */ -}}
+    
+    {{- /* Summary content */ -}}
+    <div class="content">
+        {{- with .Summary -}}
+            {{- partial "single/content.html" . -}}
+        {{- else -}}
+            {{- .Description | safeHTML -}}
+        {{- end -}}
+    </div>
+
+    {{- /* Footer */ -}}
+    
+    {{- /* Custom by chishui Begin */ -}}
+    <div class="post-footer">
+        <a href="{{ .Permalink }}">Continue Reading</a>
+    </div>
+
+    {{- partial "single/category_tag.html" . -}}
+    {{- /* Custom by chishui End */ -}}
+    
+</article>

@@ -1,0 +1,23 @@
+{{- /* Custom by chishui Begin */ -}}
+<div class="post-meta">
+    <div class="post-meta-line">
+        {{- with .Params.categories -}}
+            <span class="post-meta-line-item post-category">
+                <span>Posted in</span>
+                {{- range . -}}
+                    <span><a href="{{ `/categories/` | relLangURL }}{{ urlize .}}">{{ . | humanize }}</a></span>
+                {{- end -}}
+            </span>
+        {{- end -}}
+    
+        {{- with .Params.tags -}}
+            <span class="post-meta-line-item post-tag">
+                <span>Tagged</span>
+                {{- range . -}}
+                    <span><a href="{{ `/tags/` | relLangURL }}{{ urlize .}}">{{ . }}</a></span>
+                {{- end -}}
+            </span>
+        {{- end -}}
+    </div>   
+</div>
+{{- /* Custom by chishui End */ -}}

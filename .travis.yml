@@ -1,0 +1,28 @@
+install:
+  - wget https://github.com/gohugoio/hugo/releases/download/v0.66.0/hugo_0.66.0_Linux-64bit.deb
+  - sudo dpkg -i hugo*.deb
+  - rm -rf public 2> /dev/null
+  
+script:
+  - hugo 2> /dev/null
+  
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  email: "$GITHUB_EMAIL"
+  name: "$GITHUB_NAME"
+  verbose: true
+  keep_history: true
+  local_dir: public
+  target_branch: master
+  on:
+    branch: code
+
+after_deploy:
+  - openssl aes-256-cbc -K $encrypted_fdda3485b8d6_key -iv $encrypted_fdda3485b8d6_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - ssh root@118.25.147.130 'bash ~/pull_blog.sh'
+
+addons:
+  ssh_known_hosts: 118.25.147.130
