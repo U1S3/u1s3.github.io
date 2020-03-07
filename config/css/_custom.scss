@@ -7,6 +7,10 @@ body {
   font-family: "Barlow", sans-serif;
 }
 
+a {
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+}
+
 .wrapper {
   min-height: 100vh;
 }
@@ -29,6 +33,65 @@ body {
   border-radius: 6px;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+
+.recommend {
+  width: 100%;
+  max-width: 1230px;
+  margin: 1.8752rem auto 2rem auto;
+  
+  .recommend-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.9375rem;
+    margin-left: -0.9375rem;
+    justify-content: center;
+    align-items: center;
+    
+    .recommend-item {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+      width: 100%;
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem;
+      
+      .recommend-item-wrapper {
+        height: 200px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        border-radius: 6px;
+        
+        .recommend-item-link {
+          display: flex;
+          height: 200px;
+          background: rgba(25,25,25,.5);
+          color: #fff;
+          border-radius: 6px;
+          align-items: center;
+          justify-content: center;
+          
+          &:hover {
+            background: rgba(30,40,50,.7);
+          }
+          
+          .recommend-item-title {
+            flex: 0 0 80%;
+            max-width: 80%;
+            text-align: center;
+
+            h3 {
+              color: #fff;
+              font-size: 1.25rem;
+              line-height: 1.25;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 #header-desktop {
@@ -120,6 +183,7 @@ body {
 
 .home {
   .home-profile {
+    display: none;
     .home-social-links a {
       color: $global-font-color;
     }
@@ -134,6 +198,7 @@ body {
     
     .featured-image-preview {
       border-radius: 0.25rem;
+      padding: 37% 0 0;
       margin: 1.5rem 0;
       overflow: hidden;
     }
@@ -221,7 +286,7 @@ body {
   }
   
   .post-meta {
-    font-size: 0.9375rem;
+    font-size: 1rem;
     font-style: italic;
     line-height: 2rem;
     
@@ -266,7 +331,7 @@ body {
       
       .post-info-line {
         .post-info-md, .post-info-mod, .post-info-license, .post-info-wordcount {
-          font-size: 0.9375rem;
+          font-size: 1rem;
           font-style: italic;
           color: $global-font-secondary-color;
         }
@@ -275,13 +340,17 @@ body {
     
     .post-info-more {
       padding: 1rem 0 1rem;
-      font-size: 0.9375rem;
+      font-size: 1rem;
       font-style: italic;
       
       .post-meta {
         line-height: unset;
       }
     }
+  }
+    
+  .comment {
+    padding: 2rem;
   }
 }
 
@@ -343,6 +412,28 @@ body {
 
 
 @media only screen and (max-width: 960px) {
+  .banner {
+    min-height: 300px;
+  }
+  
+  .recommend {
+    .recommend-wrapper {
+      .recommend-item {
+        &:last-child {
+          display: none;
+        }
+        
+        .recommend-item-wrapper {
+          height: 150px;
+          
+          .recommend-item-link {
+            height: 150px;
+          }
+        }
+      }
+    }
+  }
+    
   .page {
     max-width: 100%;
     

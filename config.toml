@@ -71,7 +71,7 @@ enableEmoji = true
         [languages.en.params.home]
           # Home Page Profile
           [languages.en.params.home.profile]
-            enable = false
+            enable = true
             # Gravatar Email for preferred avatar in home page
             gravatarEmail = ""
             # URL of avatar shown in home page

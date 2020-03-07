@@ -1,13 +1,6 @@
 {{- $scratch := .Scratch.Get "scratch" -}}
 
 <article class="single summary" itemscope itemtype="http://schema.org/Article">
-    {{- /* Featured image */ -}}
-    {{- with .Params.featuredImage -}}
-        <div class="featured-image-preview">
-            {{- $image := $.Params.featuredImagePreview | default . -}}
-            {{- partial "plugin/image.html" (dict "src" $image "description" $.Description "scratch" $scratch) -}}
-        </div>
-    {{- end -}}
 
     {{- /* Title */ -}}
     <h1 class="single-title" itemprop="name headline">
@@ -25,6 +18,14 @@
             &nbsp; by <a href="{{ $authorLink }}" rel="author" target="_blank">{{ $author }}</a>
         </div>
     </div>
+    
+    {{- /* Featured image */ -}}
+    {{- with .Params.featuredImage -}}
+        <div class="featured-image-preview">
+            {{- $image := $.Params.featuredImagePreview | default . -}}
+            {{- partial "plugin/image.html" (dict "src" $image "description" $.Description "scratch" $scratch) -}}
+        </div>
+    {{- end -}}
     {{- /* Custom by chishui End */ -}}
     
     {{- /* Summary content */ -}}

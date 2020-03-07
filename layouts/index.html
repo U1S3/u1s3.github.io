@@ -2,18 +2,15 @@
 
     {{- /* Custom by chishui Begin */ -}}
     {{- partial "home/banner.html" . -}}
+    {{- partial "home/recommend.html" . -}}
     {{- /* Custom by chishui End */ -}}
-
+        
     <div class="page home">
-    
-        {{- /* Custom by chishui Begin */ -}}
-        {{- /* Profile 
+        {{- /* Profile */ -}}
         {{- if .Site.Params.home.profile.enable -}}
             {{- partial "home/profile.html" . -}}
         {{- end -}}
-        */ -}}
-        {{- /* Custom by chishui End */ -}}
-
+        
         {{- /* Posts */ -}}
         {{- if ne .Site.Params.home.posts.enable false -}}
             {{- /* Paginate */ -}}
