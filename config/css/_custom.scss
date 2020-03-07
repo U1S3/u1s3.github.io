@@ -314,6 +314,10 @@ a {
   .content {
     margin-top: 1.5rem;
     
+    kbd {
+      padding: 0rem .7rem;
+    }
+    
     p {
       font-size: 1.125rem;
       line-height: 2rem;
@@ -377,6 +381,12 @@ a {
 
 .single .content code, .single .content pre, .single .content .highlight table, .single .content .highlight tr, .single .content .highlight td {
   background: #f7f8f9;
+}
+
+// H3 的小竖线位置调整
+.single .content h3>a:first-child::before {
+  position: relative;
+  top: -1px;
 }
 
 // TOC 响应式

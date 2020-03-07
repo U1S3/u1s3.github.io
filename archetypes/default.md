@@ -3,6 +3,8 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 date: {{ .Date }}
 lastmod: {{ .Date }}
 draft: true
+recommend: false
+
 author: ""
 authorLink: ""
 description: ""

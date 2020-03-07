@@ -89,6 +89,9 @@ enableEmoji = true
             paginate = 6
             # default behavior when you don't set "hiddenFromHomePage" in front matter
             defaultHiddenFromHomePage = false
+          # Home Page Recommend
+          [languages.en.params.home.recommends]
+            enable = true
         # Social Info in home page
         [languages.en.params.social]
           GitHub = "U1S3"

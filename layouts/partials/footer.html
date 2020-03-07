@@ -1,8 +1,8 @@
 <footer class="footer">
     <div class="copyright">
-        <div class="copyright-line theme-switch">
+        <div class="copyright-line">
             {{- /* Copyright year */ -}}
-            <i class="far fa-copyright fa-fw"></i>
+            <i class="far fa-copyright fa-fw theme-switch"></i>
             {{- with .Site.Params.footer.since -}}
                 <span itemprop="copyrightYear">
                     {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}

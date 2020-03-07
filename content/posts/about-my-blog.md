@@ -2,7 +2,9 @@
 title: "博客在于折腾"
 date: 2020-03-07T14:37:38+08:00
 draft: false
+recommend: true
 
+tags: []
 categories: ['Diary']
 
 featuredImage: "https://i.loli.net/2020/03/07/NaWXnl2ZJcrK4om.png"
@@ -33,7 +35,7 @@ toc: false
 
 ---
 
-**参考资料：**
+**参考文档**
 
 [Blog Guten Pro](https://wp-points.com/themes/blog-guten-pro/)
 

@@ -2,9 +2,13 @@
 title: "Travis CI 自动化部署应用到服务器"
 date: 2020-03-06T11:38:22+08:00
 draft: true
+recommend: true
 
 tags: ['Travis-CI', 'Ruby']
 categories: ['Programing']
+
+featuredImage: "https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg"
+toc: true
 ---
 
 基本原理是 Travis CI 使用远程登录服务器，执行指定脚本。但在 Travis CI 中不像交互式终端那样可以输入帐号密码，所以需要使用 SSH免密登录。
