@@ -25,7 +25,7 @@
 
 ---
 
-**参考资料：**
+**参考文档**
 
 [Blog Guten Pro](https://wp-points.com/themes/blog-guten-pro/)
 
