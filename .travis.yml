@@ -4,7 +4,7 @@ install:
   - rm -rf public 2> /dev/null
   
 script:
-  - hugo 2> /dev/null
+  - HUGO_ENV=production hugo --gc --minify 2> /dev/null
   
 deploy:
   provider: pages

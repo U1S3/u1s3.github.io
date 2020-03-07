@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="copyright">
-        <div class="copyright-line">
+        <div class="copyright-line theme-switch">
             {{- /* Copyright year */ -}}
             <i class="far fa-copyright fa-fw"></i>
             {{- with .Site.Params.footer.since -}}
@@ -17,6 +17,5 @@
                 <span class="icp">{{ . | safeHTML }}</span>
             {{- end -}}
         </div>
-        
     </div>
 </footer>
