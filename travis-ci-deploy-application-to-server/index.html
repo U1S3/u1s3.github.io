@@ -1,0 +1,164 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>使用 Travis CI 自动部署应用到服务器 | U1S3 - 有一说三，池水的一片海。</title><meta name=Description content="有一说三，池水的一片海。"><meta property="og:title" content="使用 Travis CI 自动部署应用到服务器"><meta property="og:description" content="之前基于 Hugo 在 Github Pages 上搭建了博客（ 使用 Travis CI 自动部署站点到 Github Pages
+），又因为之前折腾 Wordpress 的时候买了个 VPS，本着钱不能白花的原则，就打算国内访问走 VPS，国外走 Github Pages。"><meta property="og:type" content="article"><meta property="og:url" content="/travis-ci-deploy-application-to-server/"><meta property="article:published_time" content="2020-03-08T20:48:05+08:00"><meta property="article:modified_time" content="2020-03-08T20:48:05+08:00"><meta property="og:site_name" content="U1S3"><meta name=twitter:card content="summary"><meta name=twitter:title content="使用 Travis CI 自动部署应用到服务器"><meta name=twitter:description content="之前基于 Hugo 在 Github Pages 上搭建了博客（ 使用 Travis CI 自动部署站点到 Github Pages
+），又因为之前折腾 Wordpress 的时候买了个 VPS，本着钱不能白花的原则，就打算国内访问走 VPS，国外走 Github Pages。"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel=canonical href=/travis-ci-deploy-application-to-server/><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=prev href=/travis-ci-deploy-website-to-github-pages/><link rel=stylesheet href=/lib/fontawesome-free/all.min.9a680b90260b5106d79f4075491ab31daafa7429eff686453c40b58357309649.css integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="><link rel=stylesheet href=/lib/animate/animate.min.3c770e90f98eb21b0c042fafb49755af93306fbaf42e449524f94fae9fc83295.css integrity="sha256-PHcOkPmOshsMBC+vtJdVr5Mwb7r0LkSVJPlPrp/IMpU="><link rel=stylesheet href=/css/style.min.f2eb219be1f09c9106dd3abbccb0dfa722e68af5f9cd82272c30fee2e4f0fe1f.css integrity="sha256-8ushm+HwnJEG3Tq7zLDfpyLmivX5zYInLDD+4uTw/h8="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用 Travis CI 自动部署应用到服务器","mainEntityOfPage":{"@type":"WebPage","@id":"\/travis-ci-deploy-application-to-server\/"},"image":{"@type":"ImageObject","url":"\/images\/cover.jpg","width":800,"height":600},"genre":"posts","keywords":"Travis-CI, Ruby","wordcount":1190,"url":"\/travis-ci-deploy-application-to-server\/","datePublished":"2020-03-08T20:48:05\x2b08:00","dateModified":"2020-03-08T20:48:05\x2b08:00","license":"CC BY-NC 4.0","publisher":{"@type":"Organization","name":"chishui","logo":{"@type":"ImageObject","url":"\/images\/logo.jpg","width":127,"height":40}},"description":""}</script></head><body><script>if(!window.localStorage||!window.localStorage.getItem('theme')){window.isDark=window.matchMedia('(prefers-color-scheme: dark)').matches;}else{window.isDark=(window.localStorage&&window.localStorage.getItem('theme'))==='dark';}
+window.isDark&&document.body.classList.add('dark-theme');</script><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/>U1S3</a><div>有一说三，池水的一片海。</div></div><div class=menu><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a></div></div></header><header class=mobile id=header-mobile><div class=header-wrapper><div class=header-container><div class=header-title><a href=/>U1S3</a><div>有一说三，池水的一片海。</div></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/>Posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a></div></div></header><script>window.desktopHeaderMode="normal";window.mobileHeaderMode="normal";</script><main class="main animated fadeIn"><div class=container><article class="page single"><h1 class=single-title>使用 Travis CI 自动部署应用到服务器</h1><div class=post-meta><div class=post-meta-line><span class=post-meta-line-item>Posted on <a href=javascript:void(0); datetime=2020-03-08>2020-03-08</a>&nbsp; by <a href=/ rel=author target=_blank>chishui</a></span></div></div><div class=featured-image><img class=lazyload src=/svg/loading.min.svg data-sizes=auto data-srcset="https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg, https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg 1.5x, https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg 2x" data-src=https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg alt></div><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><div class=toc id=toc-static><details><summary><div class=toc-title><span>Contents</span>
+<span><i class="details icon fas fa-angle-down"></i></span></div></summary><div class=toc-content id=toc-content-static><nav id=TableOfContents><ul><li><a href=#准备开始>准备开始</a></li><li><a href=#导入公钥>导入公钥</a></li><li><a href=#导入私钥>导入私钥</a><ul><li><a href=#卸载-ruby-和-gem>卸载 Ruby 和 gem</a></li><li><a href=#安装-rvm>安装 RVM</a></li><li><a href=#安装-ruby-和-gem>安装 Ruby 和 gem</a></li><li><a href=#安装-travis>安装 Travis</a></li><li><a href=#终端登录>终端登录</a></li><li><a href=#导入私钥-1>导入私钥</a></li></ul></li><li><a href=#部署逻辑>部署逻辑</a><ul><li><a href=#travisyml>.travis.yml</a></li><li><a href=#pull_blogsh>pull_blog.sh</a></li></ul></li><li><a href=#完成>完成</a></li><li><a href=#参考文档>参考文档</a></li></ul></nav></div></details></div><div class=content id=content><p>之前基于 Hugo 在 Github Pages 上搭建了博客（ <a href=/travis-ci-deploy-website-to-github-pages/ rel="noopener noreffer">使用 Travis CI 自动部署站点到 Github Pages</a>
+），又因为之前折腾 Wordpress 的时候买了个 VPS，本着钱不能白花的原则，就打算国内访问走 VPS，国外走 Github Pages。</p><h2 id=准备开始>准备开始</h2><p>目的是在提交 Github Pages 的 <code>code</code> 分支后，通过 Travis CI 远程登录服务器，执行脚本拉取 Github Pages 的 <code>master</code> 分支。但在 Travis CI 中不像交互式终端那样可以输入帐号密码，所以需要使用 SSH免密登录。</p><h2 id=导入公钥>导入公钥</h2><p>要实现 Travis CI 免密登录服务器，需要先将生成的密钥对中的公钥保存到服务器的 <code>~/.ssh/authrized_keys</code> 中。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 这里使用 git 生成的密钥对就可以</span>
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub server_user@server_ip
+</code></pre></td></tr></table></div></div><h2 id=导入私钥>导入私钥</h2><p>将私钥导入到 Travis CI 中使用的工具 Travis 需要通过 Ruby 的包管理工具 gem 安装。我当前使用的系统环境是 Manjaro，本身自带例 Ruby，但是试来试去总是报错，就卸载了并使用 RVM 重装了 Ruby 和 Gem。</p><h3 id=卸载-ruby-和-gem>卸载 Ruby 和 gem</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 删除当前安装的所有 gem 包</span>
+<span class=c1># 这一步可能会报错说缺少 Rdoc，先安装一下再执行后面的命令</span>
+<span class=c1># $ gem install rdoc</span> 
+<span class=c1># $ sudo gem install rdoc</span>
+$ gem list <span class=p>|</span> cut -d<span class=s2>&#34; &#34;</span> -f1 <span class=p>|</span> xargs gem uninstall -aIx
+$ sudo gem list <span class=p>|</span> cut -d<span class=s2>&#34; &#34;</span> -f1 <span class=p>|</span> xargs gem uninstall -aIx
+
+$ yay -R ruby rubygems
+</code></pre></td></tr></table></div></div><h3 id=安装-rvm>安装 RVM</h3><p>RVM 和 Node.js 的 NVM 属于一类东西，都是环境的版本管理工具。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 安装 GPG keys</span>
+$ gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+<span class=c1># 安装 RVM</span>
+$ <span class=se>\c</span>url -sSL https://get.rvm.io <span class=p>|</span> bash -s stable
+<span class=c1># 刷新终端</span>
+$ <span class=nb>source</span> ~/.zshrc
+<span class=c1># 切换 RVM 的 Ruby 安装源到国内镜像</span>
+$ <span class=nb>echo</span> <span class=s2>&#34;ruby_url=https://cache.ruby-china.com/pub/ruby&#34;</span> &gt; ~/.rvm/user/db
+</code></pre></td></tr></table></div></div><h3 id=安装-ruby-和-gem>安装 Ruby 和 gem</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 列出所有可装版本</span>
+$ rvm list known
+<span class=c1># 安装制定版本</span>
+$ rvm install 2.7 --disable-binary
+<span class=c1># 使用上面安装的版本</span>
+$ rvm use 2.7 --default
+
+<span class=c1># 切换国内镜像</span>
+$ gem <span class=nb>source</span> -r https://rubygems.org/
+$ gem <span class=nb>source</span> -a https://gems.ruby-china.com
+<span class=c1># 查看镜像列表 保证只有 https://gems.ruby-china.com</span>
+$ gem sources -l
+</code></pre></td></tr></table></div></div><h3 id=安装-travis>安装 Travis</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>$ gem install travis
+</code></pre></td></tr></table></div></div><h3 id=终端登录>终端登录</h3><p>登录 Travis CI 使用的是 Github 账户。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 这里有点要注意的是，Travis CI 有两个网站，一个 .org 一个 .com*</span>
+<span class=c1># 因为我使用的是 .com 的网站，所以加了 --pro</span>
+<span class=c1># 这个 --auto 必须加，不加会报错</span>
+$ travis login --pro --auto
+</code></pre></td></tr></table></div></div><h3 id=导入私钥-1>导入私钥</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># 因为我使用的是 .com 的网站，所以加了 --pro</span>
+$ travis encrypt-file ~/.ssh/id_rsa --add --pro
+</code></pre></td></tr></table></div></div><p>执行完这一步，<code>.travis.yml</code> 文件终会自动添加密钥匹配的代码，类似于下面这样。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yml data-lang=yml><span class=k>after_success</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- openssl<span class=w> </span>aes<span class=m>-256</span>-cbc<span class=w> </span>-K<span class=w> </span>$encrypted_fdda3485b8d6_key<span class=w> </span>-iv<span class=w> </span>$encrypted_fdda3485b8d6_iv<span class=w> </span>-in<span class=w> </span>id_rsa.enc<span class=w> </span>-out<span class=w> </span>~/.ssh/id_rsa<span class=w> </span>-d<span class=w>
+</span></code></pre></td></tr></table></div></div><p>但是！这里自动生成的代码有个<strong>坑</strong>！生成的代码会多一个转义符：<code>~\/.ssh/id_rsa -d</code>，去掉之后就正常了。</p><h2 id=部署逻辑>部署逻辑</h2><h3 id=travisyml>.travis.yml</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yml data-lang=yml><span class=c># 下面一部分是将站点部署到 Github Pages</span><span class=w>
+</span><span class=w></span><span class=c># 开始</span><span class=w>
+</span><span class=w></span><span class=k>install</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- wget<span class=w> </span>https<span class=p>:</span>//github.com/gohugoio/hugo/releases/download/v0<span class=m>.66.0</span>/hugo_0<span class=m>.66</span>.0_Linux-64bit.deb<span class=w>
+</span><span class=w>  </span>- sudo<span class=w> </span>dpkg<span class=w> </span>-i<span class=w> </span>hugo<span class=cp>*.deb</span><span class=w>
+</span><span class=w>  </span>- rm<span class=w> </span>-rf<span class=w> </span>public<span class=w> </span><span class=m>2</span>&gt;<span class=w> </span>/dev/<span class=kc>null</span><span class=w>
+</span><span class=w>  
+</span><span class=w></span><span class=k>script</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- HUGO_ENV=production<span class=w> </span>hugo<span class=w> </span>--gc<span class=w> </span>--minify<span class=w> </span><span class=m>2</span>&gt;<span class=w> </span>/dev/<span class=kc>null</span><span class=w>
+</span><span class=w>  
+</span><span class=w></span><span class=k>deploy</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>provider</span><span class=p>:</span><span class=w> </span>pages<span class=w>
+</span><span class=w>  </span><span class=k>skip_cleanup</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>github_token</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;$GITHUB_TOKEN&#34;</span><span class=w>
+</span><span class=w>  </span><span class=k>email</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;$GITHUB_EMAIL&#34;</span><span class=w>
+</span><span class=w>  </span><span class=k>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;$GITHUB_NAME&#34;</span><span class=w>
+</span><span class=w>  </span><span class=k>verbose</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>keep_history</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>local_dir</span><span class=p>:</span><span class=w> </span>public<span class=w>
+</span><span class=w>  </span><span class=k>target_branch</span><span class=p>:</span><span class=w> </span>master<span class=w>
+</span><span class=w>  </span><span class=k>on</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>branch</span><span class=p>:</span><span class=w> </span>code<span class=w>
+</span><span class=w></span><span class=c># 结束</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=c># 这里从 after_success 改到了 after_deploy</span><span class=w>
+</span><span class=w></span><span class=c># 因为根据 Travis CI 的生命周期，after_success 的时候 还没有执行 deploy</span><span class=w>
+</span><span class=w></span><span class=k>after_deploy</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span>- openssl<span class=w> </span>aes<span class=m>-256</span>-cbc<span class=w> </span>-K<span class=w> </span>$encrypted_fdda3485b8d6_key<span class=w> </span>-iv<span class=w> </span>$encrypted_fdda3485b8d6_iv<span class=w> </span>-in<span class=w> </span>id_rsa.enc<span class=w> </span>-out<span class=w> </span>~/.ssh/id_rsa<span class=w> </span>-d<span class=w>
+</span><span class=w>  </span><span class=c># 设置文件权限</span><span class=w>
+</span><span class=w>  </span>- chmod<span class=w> </span><span class=m>600</span><span class=w> </span>~/.ssh/id_rsa<span class=w>
+</span><span class=w>  </span><span class=c># 通过 SSH 登录服务器并执行脚本</span><span class=w>
+</span><span class=w>  </span>- ssh<span class=w> </span>server_user@server_ip<span class=w> </span><span class=s1>&#39;bash ~/pull_blog.sh&#39;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=k>addons</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=c># 第一次远程登录服务器会出现 SSH 主机验证，添加信任 IP 可通过验证</span><span class=w>
+</span><span class=w>  </span><span class=k>ssh_known_hosts</span><span class=p>:</span><span class=w> </span>server_ip<span class=w>
+</span></code></pre></td></tr></table></div></div><h3 id=pull_blogsh>pull_blog.sh</h3><p>很简单的脚本，就是进入文件夹然后 pull 一下。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh><span class=cp>#!/bin/bash
+</span><span class=cp></span><span class=nb>cd</span> /www/wwwroot/u1s3.com
+git pull
+</code></pre></td></tr></table></div></div><h2 id=完成>完成</h2><p>到这里就结束了，往后只需要专心在 <code>code</code> 分支写文章，完成后提交到仓库，Travis CI 会自动将网站部署到 Github Pages 和 VPS中。</p><h2 id=参考文档>参考文档</h2><p><a href=https://rvm.io/ target=_blank rel="noopener noreffer">RVM</a></p><p><a href=https://ruby-china.org/wiki/rvm-guide target=_blank rel="noopener noreffer">RVM 实用指南</a></p><p><a href=https://www.jianshu.com/p/fac708c689b6 target=_blank rel="noopener noreffer">Rubygem 常用命令</a></p><p><a href=https://segmentfault.com/a/1190000011218410 target=_blank rel="noopener noreffer">Travis CI 自动化部署博客</a></p><p><a href=https://blog.csdn.net/sp1206/article/details/80430493 target=_blank rel="noopener noreffer">Travis-ci远程部署到服务器</a></p><p><a href=https://www.cnblogs.com/homehtml/p/11796836.html target=_blank rel="noopener noreffer">Travis-CI自动化测试并部署至自己的CentOS服务器</a></p><p><a href=https://www.changkun.us/archives/2017/06/232/ target=_blank rel="noopener noreffer">Hexo + GitHub + Travis CI + VPS 自动部署</a></p><p><a href=https://dryyun.com/2018/06/25/travis-ci-deploy-blog/ target=_blank rel="noopener noreffer">使用 Travis CI 部署博客 - 踩坑记录</a></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>The article was updated on 2020-03-08</span></div><div class=post-info-wordcount><span>1190 words</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/travis-ci-deploy-application-to-server/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section><div class=post-meta><div class=post-meta-line><span class="post-meta-line-item post-category"><span>Posted in</span><span><a href=/categories/programing>Programing</a></span></span><span class="post-meta-line-item post-tag">
+<span>Tagged</span><span><a href=/tags/travis-ci>Travis-CI</a></span><span><a href=/tags/ruby>Ruby</a></span></span></div></div></section><section><span><a href=javascript:window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/travis-ci-deploy-website-to-github-pages/ class=prev rel=prev title="使用 Travis CI 自动部署站点到 Github Pages"><i class="fas fa-angle-left fa-fw"></i>使用 Travis CI 自动部署站点到 Github Pages</a></div></div><div class=comment></div></article></div></main><footer class=footer><div class=copyright><div class=copyright-line><i class="far fa-copyright fa-fw theme-switch"></i><span itemprop=copyrightYear>2017 - 2020</span></div></div></footer></div><a href=# class="dynamic-to-top animated faster" id=dynamic-to-top><span>&nbsp;</span>
+</a><script src=/lib/smooth-scroll/smooth-scroll.polyfills.min.54590077ee163035c3dd38dc034e9f6915ecbe680dd832f449afa21672cab116.js integrity="sha256-VFkAd+4WMDXD3TjcA06faRXsvmgN2DL0Sa+iFnLKsRY="></script><script src=/lib/lazysizes/lazysizes.min.876b4c12685e991d88378c1b6dd3638fd2da0c88f3c24da1ada950c1f26604e1.js integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE="></script><script src=/js/theme.min.1482fc67bfa2c3b8cebe476d0037b9321b5b7a8a1525b547b94143948be90e9e.js integrity="sha256-FIL8Z7+iw7jOvkdtADe5MhtbeooVJbVHuUFDlIvpDp4="></script></body></html>
