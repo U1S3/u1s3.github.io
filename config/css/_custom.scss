@@ -318,6 +318,10 @@ a {
       padding: 0rem .7rem;
     }
     
+    h2 {
+      margin-top: 2rem;
+    }
+    
     p {
       font-size: 1.125rem;
       line-height: 2rem;
@@ -326,6 +330,10 @@ a {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+    
+    .table-wrapper>table thead {
+      background-color: $header-background-color;
     }
   }
   
