@@ -119,7 +119,7 @@ deploy:
 
 ### 后续
 
-[使用 Travis CI 自动部署应用到服务器](/travis-ci-deploy-application-to-server/)
+[使用 Travis CI 自动部署应用到服务器](/posts//travis-ci-deploy-application-to-server/)
 
 ## 参考文档
 
