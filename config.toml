@@ -86,7 +86,7 @@ enableEmoji = true
           [languages.en.params.home.posts]
             enable = true
             # special amount of posts in each home posts page
-            paginate = 6
+            paginate = 3
             # default behavior when you don't set "hiddenFromHomePage" in front matter
             defaultHiddenFromHomePage = false
           # Home Page Recommend
@@ -403,7 +403,7 @@ enableEmoji = true
 # Permalinks 信息 (https://gohugo.io/content-management/urls/#permalinks)
 [Permalinks]
   # posts = ":year/:month/:filename"
-  posts = ":filename"
+  posts = ":sections/:filename"
 
 # Privacy Info (https://gohugo.io/about/hugo-and-gdpr/)
 # 隐私信息设置 (https://gohugo.io/about/hugo-and-gdpr/)

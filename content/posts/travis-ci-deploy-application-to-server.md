@@ -11,7 +11,7 @@ featuredImage: "https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg"
 toc: true
 ---
 
-之前基于 Hugo 在 Github Pages 上搭建了博客（ [使用 Travis CI 自动部署站点到 Github Pages](/travis-ci-deploy-website-to-github-pages/)），又因为之前折腾 Wordpress 的时候买了个 VPS，本着钱不能白花的原则，就打算国内访问走 VPS，国外走 Github Pages。
+之前基于 Hugo 在 Github Pages 上搭建了博客（ [使用 Travis CI 自动部署站点到 Github Pages](/posts/travis-ci-deploy-website-to-github-pages/)），又因为之前折腾 Wordpress 的时候买了个 VPS，本着钱不能白花的原则，就打算国内访问走 VPS，国外走 Github Pages。
 
 <!--more-->
 
@@ -30,7 +30,7 @@ $ ssh-copy-id -i ~/.ssh/id_rsa.pub server_user@server_ip
 
 ## 导入私钥
 
-将私钥导入到 Travis CI 中使用的工具 Travis 需要通过 Ruby 的包管理工具 gem 安装。我当前使用的系统环境是 Manjaro，本身自带例 Ruby，但是试来试去总是报错，就卸载了并使用 RVM 重装了 Ruby 和 Gem。
+将私钥导入到 Travis CI 中使用的工具 Travis 需要通过 Ruby 的包管理工具 gem 安装。我当前使用的系统环境是 Manjaro，本身自带 Ruby，但是试来试去总是报错，就卸载并使用 RVM 重装了 Ruby 和 Gem。
 
 ### 卸载 Ruby 和 gem
 
