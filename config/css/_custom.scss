@@ -217,6 +217,7 @@ a {
     .content {
       color: $global-font-color;
       margin-top: 1rem;
+      -webkit-line-clamp: unset;
       
       p {
         font-size: 1.125rem;
