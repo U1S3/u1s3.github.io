@@ -6,12 +6,11 @@ recommend: false
 
 tags: ['Git']
 categories: ['Programing']
+hiddenFromHomePage: true
 
 featuredImage: ""
 toc: true
 ---
-
-<!--more-->
 
 在开发过程中，偶尔需要克隆一个项目到非空目录，这时 git 会报错：
 

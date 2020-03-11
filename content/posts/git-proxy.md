@@ -6,16 +6,11 @@ recommend: false
 
 tags: ['Git']
 categories: ['Programing']
+hiddenFromHomePage: true
 
 featuredImage: ""
 toc: true
 ---
-
-
-
-
-
-
 
 由于某种不可描述的原因，在使用 Github 的时候，无论是 `pull` 还是 `push` 都慢的像骑车上坡一样痛苦。这时候就需要代理了，让他们飞起来。
 

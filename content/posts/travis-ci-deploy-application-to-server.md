@@ -6,6 +6,7 @@ recommend: true
 
 tags: ['Travis-CI', 'Ruby']
 categories: ['Programing']
+hiddenFromHomePage: false
 
 featuredImage: "https://i.loli.net/2020/03/07/oE691srINRQCgWp.jpg"
 toc: true

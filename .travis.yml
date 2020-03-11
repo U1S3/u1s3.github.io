@@ -16,6 +16,7 @@ deploy:
   keep_history: true
   local_dir: public
   target_branch: master
+  fqdn: u1s3.com
   on:
     branch: code
 

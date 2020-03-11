@@ -6,6 +6,7 @@ recommend: true
 
 tags: []
 categories: ['Diary']
+hiddenFromHomePage: false
 
 featuredImage: "https://i.loli.net/2020/03/07/NaWXnl2ZJcrK4om.png"
 toc: false

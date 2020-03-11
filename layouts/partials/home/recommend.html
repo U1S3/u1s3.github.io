@@ -4,7 +4,7 @@
             <div class="recommend-wrapper">
                 {{range first 3 ( where .Site.Pages ".Params.recommend" true )}}
                     <div class="recommend-item">
-                        <div class="recommend-item-wrapper" style="background-image: url('{{ .Params.featuredImage | safeURL }}')">
+                        <div class="recommend-item-wrapper lazyload" style="background-image: url('{{ .Params.featuredImage | safeURL }}')">
                             <a href="{{ .Permalink }}" class="recommend-item-link">
                                 <div class="recommend-item-title">
                                     <h3>{{ .Title }}</h3>

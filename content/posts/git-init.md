@@ -6,12 +6,11 @@ recommend: false
 
 tags: ['Git']
 categories: ['Programing']
+hiddenFromHomePage: true
 
 featuredImage: ""
 toc: true
 ---
-
-<!--more-->
 
 ## 基本配置
 

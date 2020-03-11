@@ -6,6 +6,7 @@ recommend: true
 
 tags: ['Travis-CI', 'Hugo']
 categories: ['Programing']
+hiddenFromHomePage: false
 
 featuredImage: "https://i.loli.net/2020/03/07/yON5cnJrCL2DGZU.jpg"
 toc: true

@@ -246,7 +246,7 @@ enableEmoji = true
     since = 2017
     # ICP info only in China (HTML format is allowed)
     # ICP 备案信息，仅在中国使用 (允许使用 HTML 格式)
-    icp = ""
+    icp = "<a href='http://www.beian.miit.gov.cn/' target='_blank'>苏ICP备20010716号</a>"
     # license info (HTML format is allowed)
     # 许可协议信息 (允许使用 HTML 格式)
     # license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'

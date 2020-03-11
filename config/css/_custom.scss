@@ -379,6 +379,15 @@ a {
     .far {
       margin-right: 2px;
     }
+    
+    .icp {
+      a {
+        color: $global-font-color;
+        &:hover {
+          color: $global-link-color;
+        }
+      }
+    }
   }
 }
 
