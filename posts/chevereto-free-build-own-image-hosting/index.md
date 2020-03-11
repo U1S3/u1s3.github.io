@@ -38,6 +38,8 @@ location / {
 
 安装完之后，简单的设置，一下就行了，免费版的没那么多参数可以设置的。
 
+我主要设置的就是图片重命名规则，使用了随机字符串。
+
 ## 参考文档
 
 [Chevereto-Free](https://github.com/Chevereto/Chevereto-Free)
