@@ -8,7 +8,7 @@ tags: ['Travis-CI', 'Ruby']
 categories: ['Programing']
 hiddenFromHomePage: false
 
-featuredImage: "https://img.u1s3.com/images/2020/03/11/c5b2113916d44fb2be9020d72ee1b79f.jpg"
+featuredImage: "//static.u1s3.com/images/dac55e614533060852e20eed12e2671f.jpg"
 toc: true
 ---
 

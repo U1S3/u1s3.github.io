@@ -8,7 +8,7 @@ tags: ['Travis-CI', 'Hugo']
 categories: ['Programing']
 hiddenFromHomePage: false
 
-featuredImage: "https://img.u1s3.com/images/2020/03/11/517a12c375da4bbb82ce59d21b5ed37c.jpg"
+featuredImage: "//static.u1s3.com/images/ea5c760f8ebcb391bc4f678f36b7551c.jpg"
 toc: true
 ---
 

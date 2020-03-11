@@ -8,7 +8,7 @@ tags: ['Chevereto-Free']
 categories: ['Programing']
 hiddenFromHomePage: false
 
-featuredImage: "https://img.u1s3.com/images/2020/03/11/510a1d942f5443e2ba94dbf560ce454d.jpg"
+featuredImage: "//static.u1s3.com/images/0198e2255edb18e5282407daeaca99c7.jpg"
 toc: true
 ---
 
@@ -48,6 +48,8 @@ location / {
 ## 网站设置
 
 安装完之后，简单的设置，一下就行了，免费版的没那么多参数可以设置的。
+
+我主要设置的就是图片重命名规则，使用了随机字符串。
 
 ## 参考文档
 
