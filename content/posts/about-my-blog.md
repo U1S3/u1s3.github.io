@@ -8,7 +8,7 @@ tags: []
 categories: ['Diary']
 hiddenFromHomePage: false
 
-featuredImage: "https://i.loli.net/2020/03/07/NaWXnl2ZJcrK4om.png"
+featuredImage: "https://img.u1s3.com/images/2020/03/11/f3dc8a9361674375b44d09deea00f0b1.jpg"
 toc: false
 ---
 

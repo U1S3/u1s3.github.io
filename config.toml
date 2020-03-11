@@ -86,7 +86,7 @@ enableEmoji = true
           [languages.en.params.home.posts]
             enable = true
             # special amount of posts in each home posts page
-            paginate = 3
+            paginate = 5
             # default behavior when you don't set "hiddenFromHomePage" in front matter
             defaultHiddenFromHomePage = false
           # Home Page Recommend

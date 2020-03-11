@@ -8,7 +8,7 @@ tags: ['uni-app', '小程序', '跨端']
 categories: ['Programing']
 hiddenFromHomePage: false
 
-featuredImage: ""
+featuredImage: "https://img.u1s3.com/images/2020/03/11/e7114dbf216b43fd9f54ea8932b84c8b.jpg"
 toc: true
 ---
 
