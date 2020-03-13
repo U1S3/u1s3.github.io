@@ -33,7 +33,7 @@ enableEmoji = true
     # default amount of posts in each pages
     paginate = 12
     # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = "UA-160368853-1"
+    googleAnalytics = "UA-160608138-1"
     # copyright description used only for seo schema
     copyright = "CC BY-NC 4.0"
     # date format
@@ -55,6 +55,11 @@ enableEmoji = true
         name = "Categories"
         url = "/categories/"
         weight = 3
+      [[languages.en.menu.main]]
+        identifier = "favorites"
+        name = "Favorites"
+        url = "/posts/favorites/"
+        weight = 4
       # [[languages.en.menu.main]]
         # identifier = "about"
         # name = "About"
